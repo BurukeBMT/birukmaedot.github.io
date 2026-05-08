@@ -15,7 +15,7 @@
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-light: rgba(255, 255, 255, 0.08);
   --contrast-color: #ffffff;
-  --text-muted: #a0aec0;
+  --text-muted: #c0c8d8;
 
   /* Modern design tokens */
   --glass-bg: rgba(20, 25, 45, 0.4);
@@ -28,11 +28,11 @@
 
 /* Nav Menu Colors */
 :root {
-  --nav-color: #a0aec0;
+  --nav-color: #c8d2e0;
   --nav-hover-color: #ffffff;
-  --nav-mobile-background-color: #040b14;
-  --nav-dropdown-background-color: #040b14;
-  --nav-dropdown-color: #a0aec0;
+  --nav-mobile-background-color: #050916;
+  --nav-dropdown-background-color: #08101c;
+  --nav-dropdown-color: #c8d2e0;
   --nav-dropdown-hover-color: #ffffff;
 }
 
@@ -388,17 +388,20 @@
 --------------------------------------------------------------*/
     .header {
       color: var(--default-color);
-      background-color: var(--background-color);
+      background: rgba(11, 15, 25, 0.92);
+      backdrop-filter: blur(20px);
       position: fixed;
       top: 0;
       left: 0;
       bottom: 0;
-      padding: 0 15px;
-      width: 300px;
+      padding: 30px 18px 24px;
+      width: 280px;
+      max-width: 280px;
       transition: all ease-in-out 0.3s;
       overflow-y: auto;
       z-index: 997;
-      border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 8px 0 40px rgba(0, 0, 0, 0.22);
     }
 
     .header .profile-img img {
@@ -423,6 +426,8 @@
       margin: 0;
       font-weight: 700;
       color: var(--heading-color);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .header .social-links {
@@ -506,26 +511,39 @@
       list-style: none;
       padding: 0 0 20px 0;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     .navmenu a,
     .navmenu a:focus {
       color: var(--nav-color);
-      padding: 15px 10px;
+      padding: 14px 16px;
       font-family: var(--nav-font);
       font-size: 16px;
-      font-weight: 400;
+      font-weight: 500;
       display: flex;
       align-items: center;
       white-space: nowrap;
       transition: 0.3s;
       width: 100%;
+      border-radius: 16px;
+    }
+
+    .navmenu a:hover,
+    .navmenu a.active {
+      color: var(--nav-hover-color);
+      background: rgba(108, 92, 231, 0.18);
+      box-shadow: inset 0 0 0 1px rgba(108, 92, 231, 0.12);
+      transform: translateX(2px);
     }
 
     .navmenu a .navicon,
     .navmenu a:focus .navicon {
       font-size: 20px;
-      margin-right: 10px;
+      margin-right: 12px;
+      color: var(--accent-color);
     }
 
 
