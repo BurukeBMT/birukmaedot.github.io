@@ -20,6 +20,27 @@
     headerToggleBtn.addEventListener('click', headerToggle);
   }
 
+  const themeSelect = document.querySelector('#theme-select');
+  const themeStorageKey = 'portfolioThemeMode';
+
+  function applyThemeMode(mode) {
+    document.body.classList.remove('theme-dark', 'theme-light');
+    if (mode === 'dark' || mode === 'light') {
+      document.body.classList.add(`theme-${mode}`);
+    }
+    if (themeSelect) {
+      themeSelect.value = mode || 'default';
+    }
+    localStorage.setItem(themeStorageKey, mode);
+  }
+
+  if (themeSelect) {
+    themeSelect.addEventListener('change', () => applyThemeMode(themeSelect.value));
+  }
+
+  const savedThemeMode = localStorage.getItem(themeStorageKey) || 'default';
+  applyThemeMode(savedThemeMode);
+
   /**
    * Hide mobile nav on same-page/hash links
    */

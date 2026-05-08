@@ -60,6 +60,40 @@
   --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+body.theme-dark {
+  --bg-primary: #020203;
+  --bg-secondary: #0a0a11;
+  --bg-tertiary: #141418;
+  --bg-gradient: linear-gradient(135deg, #020203 0%, #0a0a11 50%, #141418 100%);
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-warm: #f8fafc;
+  --accent-primary: #8b5cf6;
+  --accent-secondary: #22d3ee;
+  --accent-glow: rgba(139, 92, 246, 0.35);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+body.theme-light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f1f5f9;
+  --bg-gradient: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #eef2ff 100%);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-warm: #1e293b;
+  --accent-primary: #6366f1;
+  --accent-secondary: #0ea5e9;
+  --accent-glow: rgba(99, 102, 241, 0.18);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(148, 163, 184, 0.25);
+  --glass-shadow: 0 8px 32px rgba(148, 163, 184, 0.15), 0 0 0 1px rgba(148, 163, 184, 0.06);
+}
+
 /* ===== GLOBAL STYLES ===== */
 * {
   margin: 0;
@@ -354,6 +388,42 @@ body.modern-portfolio {
   display: flex;
   gap: var(--spacing-md);
   align-items: center;
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0;
+}
+
+.theme-switcher label {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.theme-switcher select {
+  min-width: 140px;
+  padding: 0.55rem 0.85rem;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  transition: var(--transition-normal);
+  appearance: none;
+}
+
+.theme-switcher select option {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.theme-switcher select:hover,
+.theme-switcher select:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.08);
 }
 
 .social-link {
