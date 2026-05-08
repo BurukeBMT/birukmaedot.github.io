@@ -7,8 +7,7 @@ This is a **personal portfolio website** for **Biruk Maedot**, a Software Engine
 - 📱 **Responsive Design**: Built with Bootstrap 5.3.3 for mobile-first, responsive layouts
 - 🎭 **Interactive Elements**: Includes animations, typed text effects, and smooth scrolling
 - 🖼️ **Portfolio Showcase**: Displays projects with filtering capabilities
-- 📧 **Contact Form**: EmailJS-powered contact form for inquiries
-- 🔍 **SEO Optimized**: Proper meta tags and semantic HTML structure
+-  **SEO Optimized**: Proper meta tags and semantic HTML structure
 
 ## 🛠️ Technologies Used
 ### 🎨 Frontend
@@ -21,9 +20,6 @@ This is a **personal portfolio website** for **Biruk Maedot**, a Software Engine
 - GLightbox
 - Swiper
 - Isotope Layout
-
-### ⚙️ Backend
-- EmailJS (for contact form processing)
 
 ### 🧰 Development Tools
 - VS Code
@@ -52,7 +48,6 @@ portfolio/
 5. 📄 **Resume**: Education, certifications, and experience
 6. 🖼️ **Portfolio**: Project showcase with filtering
 7. 💼 **Services**: Professional services offered
-8. 📞 **Contact**: Contact information and form
 
 ## 🚀 Key Projects Featured
 - 📱 Digital Attendance System (QR-based)
@@ -78,7 +73,6 @@ This portfolio is optimized for **GitHub Pages** deployment:
 ### 📋 Deployment Checklist
 - ✅ **index.html** in root directory
 - ✅ All asset paths are relative (no absolute paths)
-- ✅ Contact form uses EmailJS (no PHP backend required)
 - ✅ No server-side dependencies
 
 ### 🔧 GitHub Pages Setup
@@ -87,15 +81,94 @@ This portfolio is optimized for **GitHub Pages** deployment:
 3. Set **Source** to "Deploy from a branch"
 4. Set **Branch** to `main` and **Folder** to `/root`
 5. Click **Save**
-6. Your site will be available at `https://[username].github.io/[repository-name]`
+6. Your site will be available at 'https://burukebmt.github.io/birukmaedot.github.io/'
+## 📧 Contact Form - EmailJS Integration
 
-### 📧 Contact Form Configuration
-The contact form uses EmailJS for email delivery:
-- Service ID: `service_wc7xlb5`
-- Template ID: `template_14yinyh`
-- Public Key: `sYg8P5P0PQCEqN-6q`
+The portfolio includes a modern, fully-functional contact form powered by **EmailJS**, enabling email delivery without backend servers.
 
-To modify the contact form, update these IDs in `assets/js/main.js`.
+### Features
+
+✅ **Form Validation**
+- Email format validation
+- Name minimum length (2 characters)
+- Message minimum length (10 characters)
+- Real-time error display
+
+✅ **Rate Limiting**
+- Maximum 3 messages per hour (configurable)
+- Displays cooldown timer to users
+- Uses browser localStorage for tracking
+
+✅ **User Experience**
+- Loading spinner during submission
+- Success/error toast notifications
+- Auto-dismissing toasts (5-6 seconds)
+- Form auto-reset after successful submission
+- Detailed error messages with validation hints
+
+✅ **Production Ready**
+- Error handling and logging
+- Try-catch blocks for reliability
+- Responsive design
+- Accessible form elements
+
+### Email Template Setup
+
+1. Log in to [EmailJS Dashboard](https://dashboard.emailjs.com)
+2. Create or edit template `template_s3v2e08`
+3. Use these variables in your HTML email template:
+   - `{{from_name}}` - Sender's name
+   - `{{from_email}}` - Sender's email
+   - `{{message}}` - Message content
+
+### Example Email Template HTML
+
+```html
+<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+  <h2 style="color: #2c3e50;">📩 New Portfolio Contact Message</h2>
+  
+  <p><strong>👤 Name:</strong> {{from_name}}</p>
+  <p><strong>📧 Email:</strong> {{from_email}}</p>
+  
+  <p><strong>💬 Message:</strong></p>
+  <div style="padding: 10px; background: #f9f9f9; border-left: 4px solid #3498db;">
+    {{message}}
+  </div>
+  
+  <hr style="border: 1px solid #eee;" />
+  
+  <p style="font-size: 12px; color: #888;">
+    This message was sent from your portfolio contact form.
+  </p>
+</div>
+```
+
+### How to Update EmailJS Credentials
+
+To use different EmailJS credentials:
+
+1. Open `assets/js/main.js`
+2. Find the EmailJS configuration section (around line 214)
+3. Update:
+   - `emailjs.init('YOUR_PUBLIC_KEY')`
+   - `.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', ...)`
+4. Test the form before deployment
+
+### Troubleshooting
+
+**Form not sending emails?**
+- Verify EmailJS service and template IDs match
+- Check browser console (F12) for error messages
+- Ensure EmailJS account is active
+- Verify email template variables match form data
+
+**Rate limit not working?**
+- Clear browser localStorage: `localStorage.clear()`
+- Check browser console for errors
+
+**Toast notifications not appearing?**
+- Ensure Bootstrap CSS is loaded
+- Check z-index in browser DevTools
 
 ## �📞 Contact Information
 - 📧 **Email**: burukmaedot24@gmail.com
@@ -106,9 +179,8 @@ To modify the contact form, update these IDs in `assets/js/main.js`.
 
 ## 🚀 Setup Instructions
 1. Clone or download the project files
-2. Ensure a web server with PHP support (for contact form)
-3. Open `index.html` in a modern web browser
-4. For local development, use a local server like Apache or Nginx
+2. Open `index.html` in a modern web browser
+3. For local development, use a local server like Apache or Nginx
 
 ## 🌐 Browser Support
 - Chrome (recommended)

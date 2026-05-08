@@ -35,11 +35,18 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- Inter Font for Modern Look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header dark-background d-flex flex-column">
+  <!-- Particle Background -->
+  <div id="particles-bg" class="particles-background"></div>
+
+  <header id="header" class="header dark-background d-flex flex-column navbar-modern">
     <i class="header-toggle d-xl-none bi bi-list"></i>
 
     <div class="profile-img">
@@ -256,6 +263,37 @@
             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/agile/agile-original.svg"
               alt="Agile Development" style="height:40px;" />
             <div>Agile Development</div>
+          </div>
+        </div>
+
+        <div class="row gy-4 skills-progress mt-5" data-aos="fade-up" data-aos-delay="250">
+          <div class="col-lg-6">
+            <div class="skill-progress-item">
+              <div class="skill-progress-label"><span>Python</span><span>95%</span></div>
+              <div class="skill-progress-bar" style="--progress-width: 95%;"></div>
+            </div>
+            <div class="skill-progress-item">
+              <div class="skill-progress-label"><span>JavaScript</span><span>90%</span></div>
+              <div class="skill-progress-bar" style="--progress-width: 90%;"></div>
+            </div>
+            <div class="skill-progress-item">
+              <div class="skill-progress-label"><span>React.js</span><span>88%</span></div>
+              <div class="skill-progress-bar" style="--progress-width: 88%;"></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="skill-progress-item">
+              <div class="skill-progress-label"><span>Node.js</span><span>85%</span></div>
+              <div class="skill-progress-bar" style="--progress-width: 85%;"></div>
+            </div>
+            <div class="skill-progress-item">
+              <div class="skill-progress-label"><span>Machine Learning</span><span>92%</span></div>
+              <div class="skill-progress-bar" style="--progress-width: 92%;"></div>
+            </div>
+            <div class="skill-progress-item">
+              <div class="skill-progress-label"><span>SQL & NoSQL</span><span>86%</span></div>
+              <div class="skill-progress-bar" style="--progress-width: 86%;"></div>
+            </div>
           </div>
         </div>
       </div>
@@ -671,11 +709,15 @@
                 </div>
 
                 <div class="col-md-12 text-center">
-                  <div class="loading">Loading...</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                  <div class="loading" style="display: none;">
+                    <div class="spinner-border text-primary" role="status">
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Sending your message...</p>
+                  </div>
+                  <div class="error-message" style="display: none; margin-top: 15px;"></div>
 
-                  <button type="submit">Send Message</button>
+                  <button type="submit" class="btn btn-primary">Send Message</button>
                 </div>
 
               </div>
@@ -827,6 +869,9 @@
 
   <!-- EmailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/emailjs.min.js"></script>
+
+  <!-- Particle Background Animation -->
+  <script src="assets/js/particles.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>

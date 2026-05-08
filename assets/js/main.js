@@ -1,4 +1,4 @@
-(function() {
+(function () {
   "use strict";
 
   /**
@@ -100,7 +100,7 @@
     new Waypoint({
       element: item,
       offset: '80%',
-      handler: function(direction) {
+      handler: function (direction) {
         let progress = item.querySelectorAll('.progress .progress-bar');
         progress.forEach(el => {
           el.style.width = el.getAttribute('aria-valuenow') + '%';
@@ -119,13 +119,13 @@
   /**
    * Init isotope layout and filters
    */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+  document.querySelectorAll('.isotope-layout').forEach(function (isotopeItem) {
     let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
     let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function () {
       initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
         itemSelector: '.isotope-item',
         layoutMode: layout,
@@ -134,8 +134,8 @@
       });
     });
 
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function (filters) {
+      filters.addEventListener('click', function () {
         isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
         this.classList.add('filter-active');
         initIsotope.arrange({
@@ -153,7 +153,7 @@
    * Init swiper sliders
    */
   function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+    document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
@@ -171,7 +171,7 @@
   /**
    * Correct scrolling position upon page load for URLs containing hash links.
    */
-  window.addEventListener('load', function(e) {
+  window.addEventListener('load', function (e) {
     if (window.location.hash) {
       if (document.querySelector(window.location.hash)) {
         setTimeout(() => {
@@ -209,69 +209,212 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
   /**
-   * Contact Form Handler using EmailJS
+   * Contact Form Handler using EmailJS with Validation & Rate Limiting
    */
-  (function() {
+  (function () {
     // Initialize EmailJS with your public key
-    emailjs.init('sYg8P5P0PQCEqN-6q');
+    emailjs.init('xh2SH8g1M-kxa6tGA');
+
+    // Rate limiting configuration
+    const RATE_LIMIT_MAX_ATTEMPTS = 3;
+    const RATE_LIMIT_TIME_WINDOW = 3600000; // 1 hour in milliseconds
+    const RATE_LIMIT_KEY = 'contactFormSubmissions';
+
+    // Get submission attempts from localStorage
+    function getSubmissionAttempts() {
+      const data = localStorage.getItem(RATE_LIMIT_KEY);
+      if (!data) return [];
+
+      const attempts = JSON.parse(data);
+      const now = Date.now();
+      // Filter out attempts older than the time window
+      return attempts.filter(timestamp => now - timestamp < RATE_LIMIT_TIME_WINDOW);
+    }
+
+    // Record a submission attempt
+    function recordSubmissionAttempt() {
+      const attempts = getSubmissionAttempts();
+      attempts.push(Date.now());
+      localStorage.setItem(RATE_LIMIT_KEY, JSON.stringify(attempts));
+    }
+
+    // Check if rate limit is exceeded
+    function isRateLimited() {
+      const attempts = getSubmissionAttempts();
+      return attempts.length >= RATE_LIMIT_MAX_ATTEMPTS;
+    }
+
+    // Get time remaining until next submission is allowed
+    function getTimeRemaining() {
+      const attempts = getSubmissionAttempts();
+      if (attempts.length < RATE_LIMIT_MAX_ATTEMPTS) return 0;
+
+      const oldestAttempt = attempts[0];
+      const timeRemaining = RATE_LIMIT_TIME_WINDOW - (Date.now() - oldestAttempt);
+      return Math.ceil(timeRemaining / 60000); // Convert to minutes
+    }
+
+    // Validate email format
+    function validateEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+
+    // Validate form inputs
+    function validateForm(formData) {
+      const errors = [];
+
+      // Validate name
+      if (!formData.from_name || formData.from_name.trim().length < 2) {
+        errors.push('Name must be at least 2 characters long');
+      }
+
+      // Validate email
+      if (!formData.from_email || !validateEmail(formData.from_email)) {
+        errors.push('Please enter a valid email address');
+      }
+
+      // Validate subject
+      if (!formData.subject || formData.subject.trim().length < 5) {
+        errors.push('Subject must be at least 5 characters long');
+      }
+
+      // Validate message
+      if (!formData.message || formData.message.trim().length < 10) {
+        errors.push('Message must be at least 10 characters long');
+      }
+
+      return errors;
+    }
+
+    // Show success toast
+    function showSuccessToast() {
+      const toast = document.createElement('div');
+      toast.className = 'alert alert-success alert-dismissible fade show';
+      toast.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 300px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);';
+      toast.setAttribute('role', 'alert');
+      toast.innerHTML = `
+        <strong>✓ Success!</strong> Your message has been sent. Thank you for reaching out!
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+
+      document.body.appendChild(toast);
+
+      // Auto-remove after 5 seconds
+      setTimeout(() => {
+        toast.remove();
+      }, 5000);
+    }
+
+    // Show error toast
+    function showErrorToast(message) {
+      const toast = document.createElement('div');
+      toast.className = 'alert alert-danger alert-dismissible fade show';
+      toast.style.cssText = 'position: fixed; top: 20px; right: 20px; z-index: 9999; min-width: 300px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);';
+      toast.setAttribute('role', 'alert');
+      toast.innerHTML = `
+        <strong>✗ Error!</strong> ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+
+      document.body.appendChild(toast);
+
+      // Auto-remove after 6 seconds
+      setTimeout(() => {
+        toast.remove();
+      }, 6000);
+    }
 
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
-      contactForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Always prevent default form submission
+      contactForm.addEventListener('submit', function (event) {
+        event.preventDefault();
 
         try {
           const submitButton = contactForm.querySelector('button[type="submit"]');
           const loadingDiv = contactForm.querySelector('.loading');
           const errorDiv = contactForm.querySelector('.error-message');
-          const sentDiv = contactForm.querySelector('.sent-message');
 
           // Check if required elements exist
-          if (!submitButton || !loadingDiv || !errorDiv || !sentDiv) {
+          if (!submitButton || !loadingDiv || !errorDiv) {
             console.error('Required form elements not found');
             return;
           }
 
-          // Show loading
+          // Get form data
+          const formData = {
+            from_name: contactForm.name.value.trim(),
+            from_email: contactForm.email.value.trim(),
+            subject: contactForm.subject ? contactForm.subject.value.trim() : '',
+            message: contactForm.message.value.trim(),
+          };
+
+          // Validate form
+          const validationErrors = validateForm(formData);
+          if (validationErrors.length > 0) {
+            errorDiv.innerHTML = '<strong>Please fix the following:</strong><ul>' +
+              validationErrors.map(error => `<li>${error}</li>`).join('') +
+              '</ul>';
+            errorDiv.style.display = 'block';
+            return;
+          }
+
+          // Check rate limiting
+          if (isRateLimited()) {
+            const timeRemaining = getTimeRemaining();
+            const message = `You can only send ${RATE_LIMIT_MAX_ATTEMPTS} messages per hour. Please try again in ${timeRemaining} minute${timeRemaining !== 1 ? 's' : ''}.`;
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            showErrorToast(message);
+            return;
+          }
+
+          // Clear previous error messages
+          errorDiv.style.display = 'none';
+          errorDiv.innerHTML = '';
+
+          // Show loading state
           submitButton.disabled = true;
           loadingDiv.style.display = 'block';
-          errorDiv.style.display = 'none';
-          sentDiv.style.display = 'none';
-
-          // Prepare template parameters
-          const templateParams = {
-            name: contactForm.name.value,
-            email: contactForm.email.value,
-            subject: contactForm.subject.value,
-            message: contactForm.message.value,
-            time: new Date().toLocaleString(),
-          };
 
           // Send email using EmailJS
           emailjs
-            .send('service_wc7xlb5', 'template_14yinyh', templateParams)
-            .then(function(response) {
+            .send('service_6zap90a', 'template_s3v2e08', formData)
+            .then(function (response) {
               try {
+                // Record successful submission for rate limiting
+                recordSubmissionAttempt();
+
+                // Hide loading
                 loadingDiv.style.display = 'none';
                 submitButton.disabled = false;
-                sentDiv.style.display = 'block';
+
+                // Show success toast
+                showSuccessToast();
+
+                // Reset form
                 contactForm.reset();
               } catch (innerError) {
                 console.error('Error in success handler:', innerError);
               }
             })
-            .catch(function(error) {
+            .catch(function (error) {
               try {
                 loadingDiv.style.display = 'none';
                 submitButton.disabled = false;
-                errorDiv.textContent = 'An error occurred. Please try again.';
+
+                const errorMessage = error.text || 'Failed to send message. Please try again later.';
+                errorDiv.textContent = '✗ ' + errorMessage;
                 errorDiv.style.display = 'block';
+
+                showErrorToast(errorMessage);
               } catch (innerError) {
                 console.error('Error in error handler:', innerError);
               }
             });
         } catch (error) {
           console.error('Error in form submission:', error);
+          showErrorToast('An unexpected error occurred. Please try again.');
         }
       });
     }
