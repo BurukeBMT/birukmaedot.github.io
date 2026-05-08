@@ -7,7 +7,7 @@ This is a **personal portfolio website** for **Biruk Maedot**, a Software Engine
 - 📱 **Responsive Design**: Built with Bootstrap 5.3.3 for mobile-first, responsive layouts
 - 🎭 **Interactive Elements**: Includes animations, typed text effects, and smooth scrolling
 - 🖼️ **Portfolio Showcase**: Displays projects with filtering capabilities
-- 📧 **Contact Form**: PHP-based contact form for inquiries
+- 📧 **Contact Form**: EmailJS-powered contact form for inquiries
 - 🔍 **SEO Optimized**: Proper meta tags and semantic HTML structure
 
 ## 🛠️ Technologies Used
@@ -23,7 +23,7 @@ This is a **personal portfolio website** for **Biruk Maedot**, a Software Engine
 - Isotope Layout
 
 ### ⚙️ Backend
-- PHP (for contact form processing)
+- EmailJS (for contact form processing)
 
 ### 🧰 Development Tools
 - VS Code
@@ -34,10 +34,6 @@ This is a **personal portfolio website** for **Biruk Maedot**, a Software Engine
 ```
 portfolio/
 ├── index.html                 # Main portfolio page
-├── portfolio-details.html     # Detailed project view
-├── starter-page.html          # Additional page template
-├── forms/
-│   └── contact.php           # Contact form handler
 ├── assets/
 │   ├── css/
 │   │   └── main.css         # Custom styles
@@ -75,7 +71,33 @@ portfolio/
 - 🎓 Full-Stack Web Development (Evangadi Tech, 2025)
 - 🤖 Machine Learning Specialization (Coursera - Stanford Online & DeepLearning.AI, 2024)
 
-## 📞 Contact Information
+## � Deployment on GitHub Pages
+
+This portfolio is optimized for **GitHub Pages** deployment:
+
+### 📋 Deployment Checklist
+- ✅ **index.html** in root directory
+- ✅ All asset paths are relative (no absolute paths)
+- ✅ Contact form uses EmailJS (no PHP backend required)
+- ✅ No server-side dependencies
+
+### 🔧 GitHub Pages Setup
+1. Push your code to a GitHub repository
+2. Go to **Settings** → **Pages**
+3. Set **Source** to "Deploy from a branch"
+4. Set **Branch** to `main` and **Folder** to `/root`
+5. Click **Save**
+6. Your site will be available at `https://[username].github.io/[repository-name]`
+
+### 📧 Contact Form Configuration
+The contact form uses EmailJS for email delivery:
+- Service ID: `service_wc7xlb5`
+- Template ID: `template_14yinyh`
+- Public Key: `sYg8P5P0PQCEqN-6q`
+
+To modify the contact form, update these IDs in `assets/js/main.js`.
+
+## �📞 Contact Information
 - 📧 **Email**: burukmaedot24@gmail.com
 - 📱 **Phone**: +251 970 30 8327
 - 📍 **Location**: Adama, Ethiopia
