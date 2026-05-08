@@ -1619,6 +1619,69 @@ body.modern-portfolio {
   transform: scale(1.1);
 }
 
+/* ===== FUN QUOTE ===== */
+.fun-quote {
+  background: var(--bg-gradient);
+  padding: var(--spacing-4xl) 0;
+  text-align: center;
+  position: relative;
+}
+
+.fun-quote .quote-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.fun-quote .quote {
+  font-style: italic;
+  position: relative;
+}
+
+.fun-quote .quote-text {
+  font-size: var(--font-size-3xl);
+  font-weight: 300;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+.fun-quote .quote-text::before,
+.fun-quote .quote-text::after {
+  content: '"';
+  font-size: var(--font-size-5xl);
+  color: var(--accent-primary);
+  position: absolute;
+  top: -10px;
+  opacity: 0.6;
+}
+
+.fun-quote .quote-text::before {
+  left: -30px;
+}
+
+.fun-quote .quote-text::after {
+  right: -30px;
+}
+
+.fun-quote .quote-author {
+  font-size: var(--font-size-lg);
+  color: var(--text-muted);
+  font-weight: 400;
+  display: block;
+  margin-top: var(--spacing-md);
+}
+
+.fun-quote .quote-author::before {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: var(--accent-primary);
+  margin-right: var(--spacing-md);
+  vertical-align: middle;
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background: var(--bg-secondary);
