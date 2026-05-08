@@ -4,14 +4,21 @@
   /**
    * Header toggle
    */
+  const header = document.querySelector('#header');
   const headerToggleBtn = document.querySelector('.header-toggle');
+  const headerToggleIcon = headerToggleBtn ? headerToggleBtn.querySelector('i') : null;
 
   function headerToggle() {
-    document.querySelector('#header').classList.toggle('header-show');
-    headerToggleBtn.classList.toggle('bi-list');
-    headerToggleBtn.classList.toggle('bi-x');
+    if (!header || !headerToggleBtn || !headerToggleIcon) return;
+    const isOpen = header.classList.toggle('header-show');
+    headerToggleBtn.setAttribute('aria-expanded', isOpen);
+    headerToggleIcon.classList.toggle('bi-list', !isOpen);
+    headerToggleIcon.classList.toggle('bi-x', isOpen);
   }
-  headerToggleBtn.addEventListener('click', headerToggle);
+
+  if (headerToggleBtn) {
+    headerToggleBtn.addEventListener('click', headerToggle);
+  }
 
   /**
    * Hide mobile nav on same-page/hash links
@@ -172,16 +179,31 @@
    * Correct scrolling position upon page load for URLs containing hash links.
    */
   window.addEventListener('load', function (e) {
+    // If there's a hash link, scroll to it
     if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
+      const element = document.querySelector(window.location.hash);
+      if (element) {
         setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+          let scrollMarginTop = getComputedStyle(element).scrollMarginTop;
           window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
+            top: element.offsetTop - parseInt(scrollMarginTop || '0'),
             behavior: 'smooth'
           });
         }, 100);
+      }
+    } else {
+      // Default: start from hero section on refresh
+      const hero = document.querySelector('#hero');
+      if (hero) {
+        setTimeout(() => {
+          let scrollMarginTop = getComputedStyle(hero).scrollMarginTop;
+          window.scrollTo({
+            top: hero.offsetTop - parseInt(scrollMarginTop || '0'),
+            behavior: 'smooth'
+          });
+        }, 50);
+      } else {
+        window.scrollTo(0, 0);
       }
     }
   });

@@ -3,8 +3,6 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy"
-    content="script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' 'inline-speculation-rules' chrome-extension://e1de32b6-6faf-4b08-8829-343690620608/">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Biruk Maedot - Software Engineer & Full-Stack Developer</title>
   <meta
@@ -18,11 +16,8 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+  <!-- Inter Font for Modern Look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -34,40 +29,27 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-
-  <!-- Inter Font for Modern Look -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
-
 </head>
 
-<body class="index-page">
+<body class="modern-portfolio">
 
   <!-- Particle Background -->
   <div id="particles-bg" class="particles-background"></div>
 
-  <header id="header" class="header dark-background d-flex flex-column navbar-modern">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+  <header id="header" class="header modern-navbar sticky-navbar">
+    <button type="button" class="header-toggle d-xl-none" aria-label="Toggle navigation" aria-controls="navmenu"
+      aria-expanded="false">
+      <i class="bi bi-list"></i>
+    </button>
 
-    <div class="profile-img">
-      <img src="assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+    <div class="logo-section">
+      <a href="index.html" class="modern-logo">
+        <div class="logo-text">BM</div>
+      </a>
+      <div class="logo-glow"></div>
     </div>
 
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Biruk Maedot</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="https://github.com/BurukeBMT" class="github"><i class="bi bi-github"></i></a>
-      <a href="https://et.linkedin.com/in/biruk-maedot-563019322" class="linkedin"><i class="bi bi-linkedin"></i></a>
-      <a href="https://www.facebook.com/p/Buruk-Maedot-61564157123968/" class="facebook"><i
-          class="bi bi-facebook"></i></a>
-      <a href="https://x.com/BurukMT?t=cQs9_3jyf2irQRA2fXaTwQ&s=09" class="twitter"><i class="bi bi-twitter-x"></i></a>
-    </div>
-
-    <nav id="navmenu" class="navmenu">
+    <nav id="navmenu" class="navmenu" aria-label="Primary navigation">
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
         <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
@@ -80,219 +62,256 @@
       </ul>
     </nav>
 
+    <div class="social-links">
+      <a href="https://github.com/BurukeBMT" target="_blank" rel="noopener noreferrer" class="social-link github"><i
+          class="bi bi-github"></i></a>
+      <a href="https://et.linkedin.com/in/biruk-maedot-563019322" target="_blank" rel="noopener noreferrer"
+        class="social-link linkedin"><i class="bi bi-linkedin"></i></a>
+      <a href="https://www.facebook.com/p/Buruk-Maedot-61564157123968/" target="_blank" rel="noopener noreferrer"
+        class="social-link facebook"><i class="bi bi-facebook"></i></a>
+      <a href="https://x.com/BurukMT?t=cQs9_3jyf2irQRA2fXaTwQ&s=09" target="_blank" rel="noopener noreferrer"
+        class="social-link twitter"><i class="bi bi-twitter"></i></a>
+    </div>
   </header>
 
   <main class="main">
 
     <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" class="">
-
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <p class="mt-3">Welcome to my portfolio</p>
-        <h2>Biruk Maedot</h2>
-        <p>I'm <span class="typed"
-            data-typed-items="Software Engineer, Full-Stack Developer, Machine Learning Enthusiast">Software
-            Engineer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span
-            class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="hero-content" data-aos="fade-up" data-aos-delay="100">
+          <h1 class="hero-title">
+            Hi, I'm <span class="highlight">Biruk Maedot</span>
+          </h1>
+          <div class="hero-subtitle">
+            <span class="typed"
+              data-typed-items="Software Engineer, Full-Stack Developer, Machine Learning Enthusiast">Software
+              Engineer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span>
+          </div>
+          <p class="hero-description">
+            Passionate about building intelligent systems and scalable web applications that solve real-world problems.
+            Currently pursuing BSc in Software Engineering with expertise in Python, React.js, and Machine Learning.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">
+              <i class="bi bi-envelope"></i>
+              Get In Touch
+            </a>
+            <a href="#portfolio" class="btn btn-secondary">
+              <i class="bi bi-eye"></i>
+              View My Work
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
+          <div class="hero-image-container">
+            <div class="hero-image-glow"></div>
+            <img src="assets/img/hero-bg.jpg" alt="Biruk Maedot - Software Engineer" class="hero-image">
+            <div class="hero-image-overlay"></div>
+          </div>
+        </div>
       </div>
-
     </section><!-- /Hero Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <p>Discover my journey as a Software Engineering graduate passionate about creating innovative solutions through
-          full-stack development and machine learning.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/profile-img.jpg" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-            <h2>👨‍💻 About Me</h2>
-            <p class="fst-italic py-3">
-              I'm Biruk Maedot, a passionate Software Engineer and Machine Learning Developer from Ethiopia. Skilled in
-              Python, TensorFlow, and scikit-learn, with certifications in Full-Stack Web Development (Evangadi Tech)
-              and Machine Learning Specialization (Coursera – Stanford Online & DeepLearning.AI). I enjoy building
-              intelligent systems, scalable web applications, and solving real-world problems using data-driven
-              approaches.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Location:</strong> <span>Adama, Ethiopia</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>GitHub:</strong> <span>BurukeBMT</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+251 970 30 8327</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>LinkedIn:</strong> <span>biruk-maedot-563019322</span>
-                  </li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>BSc Software Engineering (Class
-                      of 2025)</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>University:</strong> <span>Adama Science and
-                      Technology University (ASTU)</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>burukmaedot24@gmail.com</span>
-                  </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Twitter:</strong> <span>BurukMT</span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">
-              Biruk Maedot is a Software Engineering graduate (Class of 2025) from Adama Science and Technology
-              University (ASTU), with strong expertise in Full-Stack Web Development and Machine Learning. He combines
-              solid problem-solving skills with hands-on experience in React.js, Node.js, Express, and MongoDB, as well
-              as data-centric technologies like Python, NumPy, Pandas, and TensorFlow. Certified in Full-Stack Web
-              Development (Evangadi Tech, 2025) and Machine Learning Specialization (Coursera – Stanford Online &
-              DeepLearning.AI, 2024), Biruk is passionate about building scalable, intelligent, and user-centered
-              systems that solve real-world problems.
-            </p>
-          </div>
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>About Me</h2>
+          <p>Discover my journey as a Software Engineering graduate passionate about creating innovative solutions</p>
         </div>
 
-      </div>
+        <div class="about-content" data-aos="fade-up" data-aos-delay="100">
+          <div class="about-grid">
+            <div class="about-image">
+              <div class="image-container">
+                <img src="assets/img/profile-img.jpg" class="img-fluid" alt="Biruk Maedot">
+                <div class="image-overlay"></div>
+              </div>
+            </div>
+            <div class="about-text">
+              <div class="about-card">
+                <h3>👨‍💻 Passionate Developer</h3>
+                <p class="about-description">
+                  I'm Biruk Maedot, a passionate Software Engineer and Machine Learning Developer from Ethiopia.
+                  Skilled in Python, TensorFlow, and scikit-learn, with certifications in Full-Stack Web Development
+                  (Evangadi Tech) and Machine Learning Specialization (Coursera – Stanford Online & DeepLearning.AI).
+                </p>
 
+                <div class="about-details">
+                  <div class="detail-item">
+                    <i class="bi bi-geo-alt"></i>
+                    <div>
+                      <strong>Location</strong>
+                      <span>Adama, Ethiopia</span>
+                    </div>
+                  </div>
+                  <div class="detail-item">
+                    <i class="bi bi-mortarboard"></i>
+                    <div>
+                      <strong>Education</strong>
+                      <span>BSc Software Engineering (Class of 2025)</span>
+                    </div>
+                  </div>
+                  <div class="detail-item">
+                    <i class="bi bi-telephone"></i>
+                    <div>
+                      <strong>Phone</strong>
+                      <span>+251 970 30 8327</span>
+                    </div>
+                  </div>
+                  <div class="detail-item">
+                    <i class="bi bi-envelope"></i>
+                    <div>
+                      <strong>Email</strong>
+                      <span>burukmaedot24@gmail.com</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="about-stats">
+                  <div class="stat-item">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years Experience</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Projects Completed</div>
+                  </div>
+                  <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Technologies</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section><!-- /About Section -->
 
     <!-- Skills Section -->
     <section id="skills" class="skills section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <div><span>My</span> <span class="description-title">Skills</span></div>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row justify-content-center align-items-center" style="gap: 30px; flex-wrap: wrap;">
-          <!-- Languages & Frameworks -->
-          <div class="col-auto text-center">
-            <img src="./assets/img/logo.webp" alt="Python" style="height:40px;" />
-            <div>Python</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-              alt="JavaScript" style="height:40px;" />
-            <div>JavaScript</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js"
-              style="height:40px;" />
-            <div>React.js</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js"
-              style="height:40px;" />
-            <div>Node.js</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express.js"
-              style="height:40px;" />
-            <div>Express.js</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP"
-              style="height:40px;" />
-            <div>PHP</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg"
-              alt="CodeIgniter 4" style="height:40px;" />
-            <div>CodeIgniter 4</div>
-          </div>
-          <!-- Databases -->
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"
-              style="height:40px;" />
-            <div>MySQL</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"
-              style="height:40px;" />
-            <div>MongoDB</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/phpmyadmin/phpmyadmin-original.svg"
-              alt="phpMyAdmin" style="height:40px;" />
-            <div>phpMyAdmin</div>
-          </div>
-          <!-- Machine Learning -->
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
-              alt="TensorFlow" style="height:40px;" />
-            <div>TensorFlow</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg"
-              alt="scikit-learn" style="height:40px;" />
-            <div>scikit-learn</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas"
-              style="height:40px;" />
-            <div>Pandas</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"
-              style="height:40px;" />
-            <div>NumPy</div>
-          </div>
-          <!-- Tools -->
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
-              style="height:40px; background:#fff; border-radius:50%;" />
-            <div>GitHub</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"
-              style="height:40px;" />
-            <div>VS Code</div>
-          </div>
-          <div class="col-auto text-center">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/agile/agile-original.svg"
-              alt="Agile Development" style="height:40px;" />
-            <div>Agile Development</div>
-          </div>
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>My Skills</h2>
+          <p>Technologies and tools I work with to build amazing solutions</p>
         </div>
 
-        <div class="row gy-4 skills-progress mt-5" data-aos="fade-up" data-aos-delay="250">
-          <div class="col-lg-6">
-            <div class="skill-progress-item">
-              <div class="skill-progress-label"><span>Python</span><span>95%</span></div>
-              <div class="skill-progress-bar" style="--progress-width: 95%;"></div>
+        <div class="skills-content" data-aos="fade-up" data-aos-delay="100">
+          <div class="skills-grid">
+            <!-- Programming Languages -->
+            <div class="skill-category">
+              <h3 class="category-title">Languages</h3>
+              <div class="skill-items">
+                <div class="skill-item">
+                  <img src="./assets/img/logo.webp" alt="Python" />
+                  <span>Python</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript" />
+                  <span>JavaScript</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+                  <span>PHP</span>
+                </div>
+              </div>
             </div>
-            <div class="skill-progress-item">
-              <div class="skill-progress-label"><span>JavaScript</span><span>90%</span></div>
-              <div class="skill-progress-bar" style="--progress-width: 90%;"></div>
+
+            <!-- Frameworks & Libraries -->
+            <div class="skill-category">
+              <h3 class="category-title">Frameworks</h3>
+              <div class="skill-items">
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                    alt="React.js" />
+                  <span>React.js</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                    alt="Node.js" />
+                  <span>Node.js</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                    alt="Express.js" />
+                  <span>Express.js</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/codeigniter/codeigniter-plain.svg"
+                    alt="CodeIgniter 4" />
+                  <span>CodeIgniter 4</span>
+                </div>
+              </div>
             </div>
-            <div class="skill-progress-item">
-              <div class="skill-progress-label"><span>React.js</span><span>88%</span></div>
-              <div class="skill-progress-bar" style="--progress-width: 88%;"></div>
+
+            <!-- Databases -->
+            <div class="skill-category">
+              <h3 class="category-title">Databases</h3>
+              <div class="skill-items">
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                  <span>MySQL</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                    alt="MongoDB" />
+                  <span>MongoDB</span>
+                </div>
+                <div class="skill-item">
+                  <img src="assets/img/phpmyadmin.png" alt="phpMyAdmin" />
+                  <span>phpMyAdmin</span>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="skill-progress-item">
-              <div class="skill-progress-label"><span>Node.js</span><span>85%</span></div>
-              <div class="skill-progress-bar" style="--progress-width: 85%;"></div>
+
+            <!-- Machine Learning -->
+            <div class="skill-category">
+              <h3 class="category-title">AI & ML</h3>
+              <div class="skill-items">
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg"
+                    alt="TensorFlow" />
+                  <span>TensorFlow</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg"
+                    alt="scikit-learn" />
+                  <span>scikit-learn</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg"
+                    alt="Pandas" />
+                  <span>Pandas</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy" />
+                  <span>NumPy</span>
+                </div>
+              </div>
             </div>
-            <div class="skill-progress-item">
-              <div class="skill-progress-label"><span>Machine Learning</span><span>92%</span></div>
-              <div class="skill-progress-bar" style="--progress-width: 92%;"></div>
-            </div>
-            <div class="skill-progress-item">
-              <div class="skill-progress-label"><span>SQL & NoSQL</span><span>86%</span></div>
-              <div class="skill-progress-bar" style="--progress-width: 86%;"></div>
+
+            <!-- Tools -->
+            <div class="skill-category">
+              <h3 class="category-title">Tools</h3>
+              <div class="skill-items">
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                    alt="GitHub" />
+                  <span>GitHub</span>
+                </div>
+                <div class="skill-item">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                    alt="VS Code" />
+                  <span>VS Code</span>
+                </div>
+                <div class="skill-item">
+                  <img src="assets/img/agile.png" alt="Agile Development" />
+                  <span>Agile</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -301,47 +320,59 @@
 
     <!-- Interests Section -->
     <section id="interests" class="interests section">
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Interests</h2>
-        <div><span>My</span> <span class="description-title">Interests</span></div>
-      </div><!-- End Section Title -->
       <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="features-item">
-              <i class="bi bi-cpu" style="color: #ffbb2c;"></i>
-              <h3><span>Artificial Intelligence</span></h3>
+        <div class="section-header" data-aos="fade-up">
+          <h2>My Interests</h2>
+          <p>Areas I'm passionate about and continuously exploring</p>
+        </div>
+
+        <div class="interests-grid" data-aos="fade-up" data-aos-delay="100">
+          <div class="interest-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="interest-icon">
+              <i class="bi bi-cpu"></i>
             </div>
+            <h3>Artificial Intelligence</h3>
+            <p>Exploring the frontiers of AI and its applications in solving real-world problems</p>
           </div>
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="features-item">
-              <i class="bi bi-bar-chart" style="color: #5578ff;"></i>
-              <h3><span>Machine Learning</span></h3>
+
+          <div class="interest-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="interest-icon">
+              <i class="bi bi-bar-chart"></i>
             </div>
+            <h3>Machine Learning</h3>
+            <p>Building predictive models and intelligent systems using data-driven approaches</p>
           </div>
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="features-item">
-              <i class="bi bi-code-slash" style="color: #e80368;"></i>
-              <h3><span>Full-Stack Development</span></h3>
+
+          <div class="interest-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="interest-icon">
+              <i class="bi bi-code-slash"></i>
             </div>
+            <h3>Full-Stack Development</h3>
+            <p>Creating end-to-end web solutions with modern frameworks and best practices</p>
           </div>
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="features-item">
-              <i class="bi bi-graph-up" style="color: #333;"></i>
-              <h3><span>Data Science</span></h3>
+
+          <div class="interest-card" data-aos="zoom-in" data-aos-delay="500">
+            <div class="interest-icon">
+              <i class="bi bi-graph-up"></i>
             </div>
+            <h3>Data Science</h3>
+            <p>Transforming raw data into meaningful insights and actionable intelligence</p>
           </div>
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
-            <div class="features-item">
-              <i class="bi bi-github" style="color: #47aeff;"></i>
-              <h3><span>Open Source Projects</span></h3>
+
+          <div class="interest-card" data-aos="zoom-in" data-aos-delay="600">
+            <div class="interest-icon">
+              <i class="bi bi-github"></i>
             </div>
+            <h3>Open Source</h3>
+            <p>Contributing to the developer community through open source projects</p>
           </div>
-          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
-            <div class="features-item">
-              <i class="bi bi-lightbulb" style="color: #ffa76e;"></i>
-              <h3><span>Emerging Technologies (AI, Cloud, IoT)</span></h3>
+
+          <div class="interest-card" data-aos="zoom-in" data-aos-delay="700">
+            <div class="interest-icon">
+              <i class="bi bi-lightbulb"></i>
             </div>
+            <h3>Emerging Technologies</h3>
+            <p>Staying ahead with AI, Cloud computing, IoT, and other cutting-edge technologies</p>
           </div>
         </div>
       </div>
@@ -356,6 +387,15 @@
         <p>Explore my educational background, professional experience, and technical certifications in software
           engineering and machine learning.</p>
       </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="50">
+        <div class="text-center mb-4">
+          <a href="assets/portfolio.pdf" download="Biruk_Maedot_CV.pdf" class="btn btn-primary">
+            <i class="bi bi-download"></i>
+            Download CV
+          </a>
+        </div>
+      </div>
 
       <div class="container">
 
@@ -555,179 +595,205 @@
 
     <!-- Services Section -->
     <section id="services" class="services section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Professional software engineering services including web development, machine learning solutions, and
-          full-stack application development.</p>
-      </div><!-- End Section Title -->
-
       <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon flex-shrink-0"><i class="bi bi-code-slash"></i></div>
-            <div>
-              <h4 class="title">Full-Stack Web Development</h4>
-              <p class="description">Building responsive, scalable web applications using React.js, Node.js, Express,
-                MongoDB, and modern frontend frameworks. From concept to deployment, I create user-centered solutions
-                with clean, maintainable code.</p>
-            </div>
-          </div>
-          <!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon flex-shrink-0"><i class="bi bi-cpu"></i></div>
-            <div>
-              <h4 class="title">Machine Learning Solutions</h4>
-              <p class="description">Developing intelligent systems using Python, TensorFlow, scikit-learn, and data
-                science libraries. From predictive models to natural language processing, I turn data into actionable
-                insights.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon flex-shrink-0"><i class="bi bi-database"></i></div>
-            <div>
-              <h4 class="title">Database Design & Optimization</h4>
-              <p class="description">Designing efficient database architectures with MongoDB, MySQL, and PostgreSQL.
-                Implementing data security, performance optimization, and scalable solutions for modern applications.
-              </p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon flex-shrink-0"><i class="bi bi-cloud"></i></div>
-            <div>
-              <h4 class="title">API Development & Integration</h4>
-              <p class="description">Creating robust RESTful APIs and microservices with authentication, documentation,
-                and third-party integrations. Ensuring secure, efficient communication between systems.</p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon flex-shrink-0"><i class="bi bi-graph-up"></i></div>
-            <div>
-              <h4 class="title">Data Analysis & Visualization</h4>
-              <p class="description">Transforming raw data into meaningful insights using Python, Pandas, NumPy, and
-                visualization libraries. Creating interactive dashboards and reports for data-driven decision making.
-              </p>
-            </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-            <div class="icon flex-shrink-0"><i class="bi bi-tools"></i></div>
-            <div>
-              <h4 class="title">Code Review & Optimization</h4>
-              <p class="description">Improving code quality, performance, and maintainability through comprehensive code
-                reviews, refactoring, and implementing best practices in software development.</p>
-            </div>
-          </div><!-- End Service Item -->
-
+        <div class="section-header" data-aos="fade-up">
+          <h2>My Services</h2>
+          <p>Professional software engineering services I offer</p>
         </div>
 
-      </div>
+        <div class="services-grid" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="service-icon">
+              <i class="bi bi-code-slash"></i>
+            </div>
+            <h3>Full-Stack Web Development</h3>
+            <p>Building responsive, scalable web applications using React.js, Node.js, Express, MongoDB, and modern
+              frontend frameworks.</p>
+            <ul class="service-features">
+              <li>Custom web applications</li>
+              <li>API development</li>
+              <li>Database design</li>
+              <li>Performance optimization</li>
+            </ul>
+          </div>
 
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="service-icon">
+              <i class="bi bi-cpu"></i>
+            </div>
+            <h3>Machine Learning Solutions</h3>
+            <p>Developing intelligent systems using Python, TensorFlow, scikit-learn, and data science libraries.</p>
+            <ul class="service-features">
+              <li>Predictive modeling</li>
+              <li>Data analysis</li>
+              <li>Computer vision</li>
+              <li>NLP applications</li>
+            </ul>
+          </div>
+
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="service-icon">
+              <i class="bi bi-database"></i>
+            </div>
+            <h3>Database Design & Optimization</h3>
+            <p>Designing efficient database architectures with MongoDB, MySQL, and PostgreSQL.</p>
+            <ul class="service-features">
+              <li>Schema design</li>
+              <li>Performance tuning</li>
+              <li>Data security</li>
+              <li>Backup solutions</li>
+            </ul>
+          </div>
+
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="500">
+            <div class="service-icon">
+              <i class="bi bi-cloud"></i>
+            </div>
+            <h3>API Development & Integration</h3>
+            <p>Creating robust RESTful APIs and microservices with authentication and third-party integrations.</p>
+            <ul class="service-features">
+              <li>RESTful APIs</li>
+              <li>Microservices</li>
+              <li>Authentication</li>
+              <li>Documentation</li>
+            </ul>
+          </div>
+
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="600">
+            <div class="service-icon">
+              <i class="bi bi-graph-up"></i>
+            </div>
+            <h3>Data Analysis & Visualization</h3>
+            <p>Transforming raw data into meaningful insights using Python, Pandas, NumPy, and visualization libraries.
+            </p>
+            <ul class="service-features">
+              <li>Data processing</li>
+              <li>Interactive dashboards</li>
+              <li>Statistical analysis</li>
+              <li>Report generation</li>
+            </ul>
+          </div>
+
+          <div class="service-card" data-aos="zoom-in" data-aos-delay="700">
+            <div class="service-icon">
+              <i class="bi bi-tools"></i>
+            </div>
+            <h3>Code Review & Optimization</h3>
+            <p>Improving code quality, performance, and maintainability through comprehensive reviews and refactoring.
+            </p>
+            <ul class="service-features">
+              <li>Code quality assessment</li>
+              <li>Performance optimization</li>
+              <li>Security auditing</li>
+              <li>Best practices implementation</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </section><!-- /Services Section -->
 
 
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Get in touch to discuss your next software project, machine learning solution, or web development needs. I'm
-          passionate about leveraging Python, React.js, Node.js, and Data Science to create innovative and impactful
-          solutions.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Address</h3>
-                  <p>Adama, Ethiopia</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call Us</h3>
-                  <p>+251 970 30 8327</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email Us</h3>
-                  <p>burukmaedot24@gmail.com</p>
-                </div>
-              </div><!-- End Info Item -->
-
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.548791854!2d39.2695!2d8.5409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85d6b8a689fd%3A0x4c84e37a3d31280!2sAdama%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
-                frameborder="0" style="border:0; width: 100%; height: 270px;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-
-          <div class="col-lg-7">
-            <form id="contact-form" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
-
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="6" placeholder="Enter your message here..."
-                    required></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading" style="display: none;">
-                    <div class="spinner-border text-primary" role="status">
-                      <span class="visually-hidden">Loading...</span>
-                    </div>
-                    <p class="mt-2">Sending your message...</p>
-                  </div>
-                  <div class="error-message" style="display: none; margin-top: 15px;"></div>
-
-                  <button type="submit" class="btn btn-primary">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
+      <div class="container">
+        <div class="section-header" data-aos="fade-up">
+          <h2>Get In Touch</h2>
+          <p>Let's discuss your next project or collaboration opportunity</p>
         </div>
 
-      </div>
+        <div class="contact-content" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <div class="info-card">
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="bi bi-geo-alt"></i>
+                  </div>
+                  <div class="info-content">
+                    <h4>Location</h4>
+                    <p>Adama, Ethiopia</p>
+                  </div>
+                </div>
 
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="bi bi-envelope"></i>
+                  </div>
+                  <div class="info-content">
+                    <h4>Email</h4>
+                    <p>burukmaedot24@gmail.com</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="bi bi-telephone"></i>
+                  </div>
+                  <div class="info-content">
+                    <h4>Phone</h4>
+                    <p>+251 970 30 8327</p>
+                  </div>
+                </div>
+
+                <div class="info-item">
+                  <div class="info-icon">
+                    <i class="bi bi-clock"></i>
+                  </div>
+                  <div class="info-content">
+                    <h4>Response Time</h4>
+                    <p>Within 24 hours</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.548791854!2d39.2695!2d8.5409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85d6b8a689fd%3A0x4c84e37a3d31280!2sAdama%2C%20Ethiopia!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+                  frameborder="0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            </div>
+
+            <div class="contact-form">
+              <form id="contact-form" method="post" class="form-card">
+                <div class="form-group">
+                  <label for="name-field">Full Name</label>
+                  <input type="text" name="name" id="name-field" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="email-field">Email Address</label>
+                  <input type="email" class="form-input" name="email" id="email-field" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="subject-field">Subject</label>
+                  <input type="text" class="form-input" name="subject" id="subject-field" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="message-field">Message</label>
+                  <textarea class="form-input" name="message" id="message-field" rows="6"
+                    placeholder="Tell me about your project..." required></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <div class="loading" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Sending your message...</p>
+                  </div>
+                  <div class="error-message" style="display: none;"></div>
+                  <button type="submit" class="btn btn-primary btn-block">
+                    <i class="bi bi-send"></i>
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </section><!-- /Contact Section -->
 
   </main>
@@ -835,19 +901,24 @@
     </div>
   </div>
 
-  <footer id="footer" class="footer position-relative light-background">
-    <div class="text-center">
-      <h3 class="sitename">Biruk Maedot</h3>
-      <p>Passionate Software Engineering student specializing in Python, Machine Learning, and full-stack web
-        development. Let's collaborate to build innovative solutions!</p>
-      <div class="container">
-        <div class="copyright text-center ">
-          <p>© <span>Copyright</span> <strong class="px-1 sitename">Biruk Maedot</strong> <span>All Rights
-              Reserved</span></p>
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3 class="sitename">BM</h3>
+          <center>Building the future, one line of code at a time.</center>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <div class="copyright">
+            <center>© 2025 Biruk Maedot. All rights reserved.</center>
+          </div>
         </div>
       </div>
     </div>
-
+    </div>
   </footer>
 
   <!-- Scroll Top -->
