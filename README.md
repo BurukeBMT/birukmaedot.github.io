@@ -173,7 +173,7 @@ To use different EmailJS credentials:
 ## �📞 Contact Information
 - 📧 **Email**: burukmaedot24@gmail.com
 - 📱 **Phone**: +251 970 30 8327
-- 📍 **Location**: Adama, Ethiopia
+- 📍 **Location**: Addis Ababa, Ethiopia
 - 💻 **GitHub**: https://github.com/BurukeBMT
 - 🔗 **LinkedIn**: https://et.linkedin.com/in/biruk-maedot-563019322
 
